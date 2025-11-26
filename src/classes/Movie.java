@@ -1,6 +1,7 @@
 package classes;
 
 public class Movie {
+
     public static final int CHILDRENS = 2;
     public static final int REGULAR = 0;
     public static final int NEW_RELEASE = 1;
@@ -11,10 +12,6 @@ public class Movie {
     public Movie(String name, int priceCode) {
         _title = name;
         setPriceCode(priceCode);
-    }
-
-    public String getTitle() {
-        return _title;
     }
 
     public int getPriceCode() {
@@ -37,13 +34,15 @@ public class Movie {
         }
     }
 
+    public String getTitle() {
+        return _title;
+    }
+
     public double getCharge(int daysRented) {
         return _price.getCharge(daysRented);
     }
 
     public int getFrequentRenterPoints(int daysRented) {
-        if (getPriceCode() == NEW_RELEASE && daysRented > 1)
-            return 2;
-        return 1;
+        return _price.getFrequentRenterPoints(daysRented);
     }
 }
